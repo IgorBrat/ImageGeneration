@@ -10,8 +10,8 @@ except of training one model to generate samples, it was advised to use two mode
 discriminator (**G** and **D** later in the document). While D is responsible to distinguish real from fake (generated)
 images, G is trying to fool D and produce as real looking images as possible. That way, G and D are continiously
 training and, unlike traditional computer vision models, can never stop learning. That happens because both models are
-learning from each other: if D is becoming more correct in guessing real and fake images, G is becoming a greater '
-artist' to fool D and generate more realistic samples. However, there can be a problem of one model becoming more
+learning from each other: if D is becoming more correct in guessing real and fake images, G is becoming a greater 'artist' 
+to fool D and generate more realistic samples. However, there can be a problem of one model becoming more
 superior that the other, thus stops actually learning, and the worse one can't catch up with the better. So training
 models in equal conditions is advised. More complex solutions are not described or used in the project.
 
@@ -28,8 +28,8 @@ There are some resources that are not in the repo:
    [CELEBa](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html),
    [dog breeds](http://vision.stanford.edu/aditya86/ImageNetDogs/),
    [anime faces](https://www.kaggle.com/datasets/splcher/animefacedataset).
-2. Trained models weights should be stored in `ml\resources\` directory in files with .pt or .pth format. Weights for
-3. Inception and VGG networks, used in style transfer and metrics, should also be stored in `ml\resources\`.
+2. Trained models weights should be stored in `ml\resources\` directory in files with .pt or .pth format.
+3. Weights for Inception and VGG networks, used in style transfer and metrics, should also be stored in `ml\resources\`.
 
 ## Models
 
