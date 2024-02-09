@@ -1,0 +1,9 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="train-container">
+    <h1>Text2Image DCGAN</h1>
+    {% include 'inference/main/text2image.html' %}
+</div>
+{% endblock content %}

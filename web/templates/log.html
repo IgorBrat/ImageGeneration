@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+    <h1>Logs</h1>
+    <pre id="logs"></pre>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function updateCurrentTime() {
+        let url = '/logging';
+        url = url.concat("/", "{{ log_file }}");
+        $.ajax({
+            url: url,
+            success: function (data) {
+                $('#logs').text(data.logs);
+            }
+        });
+    }
+
+    // Initial update
+    updateCurrentTime();
+
+    // Set interval to update every 10 seconds
+    setInterval(updateCurrentTime, 10000);
+</script>
+
+
+{% endblock content %}

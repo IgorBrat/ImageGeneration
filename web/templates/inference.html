@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/inference.css' %}">
+
+<div class="model-buttons">
+    <h2>Inference</h2>
+    {% for model, saved in models.items %}
+    <button class="show-models-button" data-target="div-{{model.lower}}">
+        {{model}}
+    </button>
+    <div id="div-{{model.lower}}" style="display:none;">
+        {% for saved_model in saved %}
+        <button class="model-button">
+            <a href="/infer/{{ model|lower }}/{{ saved_model|lower }}">{{saved_model}}</a>
+        </button>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    document.querySelectorAll('.show-models-button').forEach(function (button) {
+        button.addEventListener('click', function () {
+            // Get the 'data-target' attribute value to determine which div to show
+            let targetDivId = button.getAttribute('data-target');
+            // Show the selected div
+            document.getElementById(targetDivId).style.display = document.getElementById(targetDivId).style.display
+            === 'none' ? 'block' : 'none';
+        });
+    });
+</script>
+
+{% endblock content %}

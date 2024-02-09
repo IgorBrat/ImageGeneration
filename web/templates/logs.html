@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/inference.css' %}">
+
+<div>
+    <h1>Logs</h1>
+    {% for log_file in log_files %}
+    <button class="show-models-button">
+        <a href="/logs/{{ log_file|lower }}">{{ log_file }}</a>
+    </button>
+    {% endfor %}
+</div>
+
+
+{% endblock content %}

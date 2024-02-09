@@ -1,0 +1,10 @@
+<form method="POST" action="" class="model-form">
+    {% csrf_token %}
+    <label>Number of images
+        <input required type="number" name="num_images" value=9 min=1 max=30>
+    </label>
+    <input type="submit" name="submit" value="Submit">
+</form>
+{% for image in images %}
+<img src="data:image/png;base64,{{ image }}" alt="Your Image">
+{% endfor %}

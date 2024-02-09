@@ -1,0 +1,5 @@
+Model: DCGAN
+Start of training: 2023-12-26_11-50-08
+Epoch 1, Gen Loss: 1.0311, Disc Loss: 0.5429
+Epoch 2, Gen Loss: 1.1384, Disc Loss: 0.3742
+Finished training in 0.8486985325813293 min

@@ -1,0 +1,2 @@
+Model: Text2Image DCGAN
+Start of training: 2023-12-26_11-59-07

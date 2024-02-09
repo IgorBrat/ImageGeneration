@@ -1,0 +1,13 @@
+{% include 'train/models/forms/model_init.html' %}
+
+
+<label>Text embedding latent dim
+    <input required type="number" name="text_embedding_latent" value=128>
+</label>
+<label>Text encoder model
+    <select name="text_model" id="encoder_selector">
+        {% for encoder in text_encoders %}
+        <option value="{{encoder}}">{{encoder}}</option>
+        {% endfor %}
+    </select>
+</label>

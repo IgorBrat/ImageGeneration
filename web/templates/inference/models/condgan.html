@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="train-container">
+    <h1>Conditional GAN</h1>
+    <form method="POST" action="" class="model-form">
+        {% csrf_token %}
+        <label>Number of images
+            <input required type="number" name="num_images" value=9 min=1 max=30>
+        </label>
+        <label>Target class
+            <input required type="number" name="target_class" value=1 min=0>
+        </label>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+    {% for image in images %}
+    <img src="data:image/png;base64,{{ image }}" alt="Your Image">
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/train.css' %}">
+
+<div class="model-buttons">
+    <h2>Basic models</h2>
+    {% for model_name in basic_models %}
+    <button class="model-button">
+        <a href="/train/{{ model_name|lower }}">{{model_name}}</a>
+    </button>
+    {% endfor %}
+    <h2>Text2Image models</h2>
+    {% for model_name in text2image %}
+    <button class="model-button">
+        <a href="/train/{{ model_name|lower }}">{{model_name}}</a>
+    </button>
+    {% endfor %}
+</div>
+
+{% endblock content %}

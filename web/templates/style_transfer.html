@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/style-transfer.css' %}">
+
+<div class="home-container">
+    <div>
+        <h1>Style Transfer</h1>
+    </div>
+    <form method="post" class="style-transfer-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label>Image size
+            <input required type="number" name="image_size" value=256>
+        </label>
+        {% include 'train/models/forms/train_params.html' %}
+        <label>Alpha (content priority)
+            <input required type="number" name="alpha" value=1>
+        </label>
+        <label>Beta (style priority)
+            <input required type="number" name="beta" value=1000>
+        </label>
+        <button type="submit">Upload</button>
+    </form>
+    {% if images %}
+    <img src="data:image/png;base64,{{ images.0 }}" alt="Your Image" style="max-height:300px">
+    {% endif %}
+</div>
+{% endblock content %}
